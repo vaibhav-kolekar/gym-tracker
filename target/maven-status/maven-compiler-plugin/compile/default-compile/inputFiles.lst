@@ -1,0 +1,6 @@
+/Users/vaibhavkolekar/Projects/gym-tracker/src/main/java/com/gymtracker/GymTrackerApplication.java
+/Users/vaibhavkolekar/Projects/gym-tracker/src/main/java/com/gymtracker/controller/ExerciseController.java
+/Users/vaibhavkolekar/Projects/gym-tracker/src/main/java/com/gymtracker/dto/ExerciseSuggestions.java
+/Users/vaibhavkolekar/Projects/gym-tracker/src/main/java/com/gymtracker/entity/Exercise.java
+/Users/vaibhavkolekar/Projects/gym-tracker/src/main/java/com/gymtracker/repository/ExerciseRepository.java
+/Users/vaibhavkolekar/Projects/gym-tracker/src/main/java/com/gymtracker/service/ExerciseService.java

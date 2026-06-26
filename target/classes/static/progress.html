@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gym Tracker Progress</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="summary-band" aria-labelledby="progress-title">
+      <div>
+        <nav class="page-nav" aria-label="Primary">
+          <a class="nav-link" href="/">Workout Log</a>
+          <a class="nav-link active" href="/progress.html">Progress Charts</a>
+        </nav>
+        <p class="eyebrow">Performance Trends</p>
+        <h1 id="progress-title">Progress Charts</h1>
+        <p class="subtitle">Compare your latest session against earlier workouts by exercise name or muscle group.</p>
+      </div>
+      <div class="summary-grid" aria-label="Chart summary">
+        <div>
+          <span id="trackedGroups">0</span>
+          <small>tracked groups</small>
+        </div>
+        <div>
+          <span id="chartPoints">0</span>
+          <small>points on chart</small>
+        </div>
+        <div>
+          <span id="latestDate">-</span>
+          <small>latest session</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="analytics-layout">
+      <aside class="panel filters">
+        <div class="filter-row">
+          <h2>Compare workouts</h2>
+          <p class="helper-text">Choose whether to compare the same exercise name or the same muscle category.</p>
+        </div>
+
+        <label>
+          Compare by
+          <select id="compareMode">
+            <option value="name">Exercise name</option>
+            <option value="muscleGroup">Muscle group</option>
+          </select>
+        </label>
+
+        <label>
+          Workout
+          <select id="compareValue"></select>
+        </label>
+
+        <label>
+          Chart metric
+          <select id="metric">
+            <option value="weightKg">Weight</option>
+            <option value="repetitions">Repetitions</option>
+            <option value="volume">Volume</option>
+            <option value="sets">Sets</option>
+          </select>
+        </label>
+
+        <p id="filterMessage" class="message" role="status"></p>
+      </aside>
+
+      <section class="panel chart-panel" aria-labelledby="comparison-title">
+        <div class="list-header">
+          <h2 id="comparison-title">Session comparison</h2>
+          <span id="chartLabel" class="helper-text"></span>
+        </div>
+
+        <div class="comparison-grid">
+          <article class="comparison-card">
+            <span>Latest day</span>
+            <strong id="latestMetric">-</strong>
+            <p id="latestMetricDate" class="notes"></p>
+          </article>
+          <article class="comparison-card">
+            <span>Previous best</span>
+            <strong id="bestMetric">-</strong>
+            <p id="bestMetricDate" class="notes"></p>
+          </article>
+          <article class="comparison-card">
+            <span>Change vs previous</span>
+            <strong id="deltaMetric">-</strong>
+            <p id="deltaContext" class="notes"></p>
+          </article>
+        </div>
+
+        <div class="chart-frame">
+          <svg id="progressChart" class="chart-svg" viewBox="0 0 760 280" preserveAspectRatio="none" aria-label="Workout progress chart"></svg>
+        </div>
+        <p id="chartCaption" class="chart-caption"></p>
+
+        <div class="chart-grid">
+          <article class="insight-card">
+            <span>Total sessions</span>
+            <strong id="sessionCount">0</strong>
+          </article>
+          <article class="insight-card">
+            <span>Average metric</span>
+            <strong id="averageMetric">-</strong>
+          </article>
+          <article class="insight-card">
+            <span>Trend</span>
+            <strong id="trendMetric">-</strong>
+          </article>
+        </div>
+
+        <div>
+          <h2>History</h2>
+          <div id="historyWrapper"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="/progress.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gym Tracker</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="summary-band" aria-labelledby="page-title">
+      <div>
+        <nav class="page-nav" aria-label="Primary">
+          <a class="nav-link active" href="/">Workout Log</a>
+          <a class="nav-link" href="/progress.html">Progress Charts</a>
+        </nav>
+        <p class="eyebrow">Progress Log</p>
+        <h1 id="page-title">Gym Tracker</h1>
+        <p class="subtitle">Record each lift, compare recent sessions, and keep your training history in one place.</p>
+      </div>
+      <div class="summary-grid" aria-label="Workout summary">
+        <div>
+          <span id="totalLogs">0</span>
+          <small>entries</small>
+        </div>
+        <div>
+          <span id="totalVolume">0</span>
+          <small>kg volume</small>
+        </div>
+        <div>
+          <span id="lastWorkout">-</span>
+          <small>last workout</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="work-area">
+      <form id="exerciseForm" class="log-form">
+        <input type="hidden" id="exerciseId">
+        <div class="form-header">
+          <h2 id="formTitle">Add exercise</h2>
+          <button type="button" id="cancelEdit" class="ghost hidden">Cancel</button>
+        </div>
+
+        <label>
+          Exercise
+          <input id="name" name="name" type="text" placeholder="Bench press" list="nameSuggestions" required>
+        </label>
+
+        <label>
+          Muscle group
+          <input id="muscleGroup" name="muscleGroup" type="text" placeholder="Chest" list="muscleGroupSuggestions">
+        </label>
+
+        <div class="split">
+          <label>
+            Weight (kg)
+            <input id="weightKg" name="weightKg" type="number" min="0.5" step="0.5" inputmode="decimal" list="weightSuggestions" required>
+          </label>
+          <label>
+            Reps
+            <input id="repetitions" name="repetitions" type="number" min="1" step="1" inputmode="numeric" list="repetitionSuggestions" required>
+          </label>
+        </div>
+
+        <div class="split">
+          <label>
+            Sets
+            <input id="sets" name="sets" type="number" min="1" step="1" inputmode="numeric" list="setSuggestions" value="1">
+          </label>
+          <label>
+            Date
+            <input id="performedOn" name="performedOn" type="date" required>
+          </label>
+        </div>
+
+        <label>
+          Notes
+          <textarea id="notes" name="notes" rows="3" placeholder="How did it feel?"></textarea>
+        </label>
+
+        <datalist id="nameSuggestions"></datalist>
+        <datalist id="muscleGroupSuggestions"></datalist>
+        <datalist id="weightSuggestions"></datalist>
+        <datalist id="repetitionSuggestions"></datalist>
+        <datalist id="setSuggestions"></datalist>
+        <button type="submit" class="primary">Save workout</button>
+        <p id="formMessage" class="message" role="status"></p>
+      </form>
+
+      <section class="log-list" aria-labelledby="history-title">
+        <div class="list-header">
+          <h2 id="history-title">History</h2>
+          <input id="search" type="search" placeholder="Search exercise">
+        </div>
+        <div id="exerciseList" class="entries"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
